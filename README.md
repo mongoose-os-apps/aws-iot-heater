@@ -47,8 +47,8 @@ dashboard. Don't close the tab for now: when your stack is instantiated,
 you'll need to get back here and enter the Website URL.
 
 ```bash
-git clone https://github.com/cesanta/mongoose-os.git  # Clone mongoose-os repo
-cd mongoose-os/fw/examples/aws_iot_smart_heater       # Go to the  example project
+git clone https://github.com/mongoose-os-apps/aws-iot-heater  # Clone repo
+cd aws-iot-heater
 
 mos flash aws-esp8266                           # Install Mongoose OS
 DEVICE_ID=$(mos config-get device.id)           # Get device ID
@@ -57,7 +57,7 @@ mos config-set mqtt.enable=true                 # Enable MQTT
 mos wifi WIFI_SSID WIFI_PASSWORD                # Setup WiFi
 mos aws-iot-setup --aws-iot-policy=mos-default  # Provision on AWS IoT
 
-npm --prefix ../helpers/cloudformation-helpers install ../helpers/cloudformation-helpers
+npm --prefix helpers/cloudformation-helpers install helpers/cloudformation-helpers
 
 # We'll also need to create a separate S3 bucket for helper functions:
 aws s3 mb s3://my-cf-helpers
