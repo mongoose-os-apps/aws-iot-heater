@@ -65,7 +65,7 @@ RPC.addHandler('Heater.GetState', function(args) {
 });
 
 // Send temperature readings to the cloud
-Timer.set(freq, true, function() {
+Timer.set(freq, Timer.REPEAT, function() {
   state = getStatus();
   reportState();
 }, null);
