@@ -72,9 +72,7 @@ Timer.set(freq, Timer.REPEAT, function() {
 
 function reportState() {
   print('Reporting state:', JSON.stringify(state));
-  AWS.Shadow.update(0, {
-    reported: state,
-  });
+  AWS.Shadow.update(0, state);
 }
 
 AWS.Shadow.setStateHandler(function(ud, ev, reported, desired) {
