@@ -159,7 +159,7 @@ Resources:
   S3PutObjectFunction:
     Type: AWS::Lambda::Function
     Properties:
-      Code: ../helpers/cloudformation-helpers
+      Code: helpers/cloudformation-helpers
       Description: Used to put objects into S3.
       Handler: aws/s3.putObject
       Role:
@@ -210,7 +210,7 @@ Resources:
   CognitoLambdaFunction:
     Type: AWS::Lambda::Function
     Properties:
-      Code: ../helpers/cloudformation-helpers
+      Code: helpers/cloudformation-helpers
       Description: Used to create Custom::CognitoIdentityPool and Custom::CognitoIdentityPoolRoles
       Handler: aws/cognito.handler
       MemorySize: 128

@@ -52,7 +52,7 @@ cd aws-iot-heater
 
 mos flash aws-esp8266                           # Install Mongoose OS
 DEVICE_ID=$(mos config-get device.id)           # Get device ID
-mos put init.js                                 # Copy init.js on the device
+mos put fs/init.js                              # Copy init.js on the device
 mos config-set mqtt.enable=true                 # Enable MQTT
 mos wifi WIFI_SSID WIFI_PASSWORD                # Setup WiFi
 mos aws-iot-setup --aws-iot-policy=mos-default  # Provision on AWS IoT
@@ -76,7 +76,7 @@ aws cloudformation package \
 
 # Generate Oauth IDs on Google and Facebook
 GOOGLE_CLIENT_ID=YOUR_GOOGLE_CLIENT_ID
-FACEBOOK_CLIENT_ID=$YOUR_FACEBOOK_CLIENT_ID
+FACEBOOK_CLIENT_ID=YOUR_FACEBOOK_CLIENT_ID
 
 STACK_NAME=my-heater
 
@@ -105,13 +105,13 @@ aws cloudformation describe-stacks --stack-name $STACK_NAME
 # look for the following:
 #  ...
 #  {
-#      "Description": "Name of the newly created S3 bucket", 
-#      "OutputKey": "S3BucketName", 
+#      "Description": "Name of the newly created S3 bucket",
+#      "OutputKey": "S3BucketName",
 #      "OutputValue": "S3_BUCKET_NAME"
 #  },
 #  {
-#      "Description": "URL of the s3 bucket", 
-#      "OutputKey": "S3BucketWebsite", 
+#      "Description": "URL of the s3 bucket",
+#      "OutputKey": "S3BucketWebsite",
 #      "OutputValue": "APP_URL"
 #  }
 #  ...
